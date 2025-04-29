@@ -17,8 +17,6 @@
 #define MIN_FREQUENCY 1             // Minimum allowed frequency
 #define MAX_FREQUENCY 10000         // Maximum allowed frequency (example)
 
-void outputCallback();              // Callback function for toggling output pin
-
 int incomingByte = 5;               // Variable to store incoming serial data
 unsigned long k = 512;              // PWM duty cycle (0-1023)
 
@@ -60,9 +58,4 @@ void loop() {
       Timer1.pwm(OUTPUT_PIN, k);    // Restart PWM with duty cycle k
     }
   }
-}
-
-void outputCallback() {
-  // Toggle the state of OUTPUT_PIN
-  digitalWrite(OUTPUT_PIN, !digitalRead(OUTPUT_PIN));
 }
